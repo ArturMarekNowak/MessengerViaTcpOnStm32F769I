@@ -29,8 +29,6 @@ DWORD WINAPI ReadThread(void* args)
         if (n < 0) 
             error("ERROR reading from socket");
 
-	//for(int i = 0; i < 2; i++)
-	//	printf("%c", buffer[i]);
 	printf("%.*s", n, buffer);
 
 	}
