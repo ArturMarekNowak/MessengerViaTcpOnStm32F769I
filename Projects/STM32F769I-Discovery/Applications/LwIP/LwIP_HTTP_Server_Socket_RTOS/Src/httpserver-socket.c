@@ -46,7 +46,7 @@
 #include "lwip/apps/fs.h"
 #include "lwip/netdb.h"
 #include "string.h"
-#include "server-socket.h"
+//#include "server-socket.h"
 #include "cmsis_os.h"
 #include "lcd_log.h"
 #include <stdbool.h>
@@ -74,8 +74,8 @@ void FirstSocket(int conn)
       return;
 
     msg_buf[Recived] = '\0';
-    LCD_UsrLog("Otrzymano wiadomosc: %s\n", &msg_buf[0]); // TODO ... wiadomosc od [UZUPELNIC]
-    msg_buf[Recived] = '\n';
+    LCD_UsrLog("Klient A: %s\n", &msg_buf[0]);
+    msg_buf[Recived] = '\r';
     msg_buf_cnt = Recived + 2;
 
     write(ConnSecondSocket, &msg_buf[0], Recived + 2);
@@ -93,7 +93,7 @@ void SecondSocket(int conn)
       return;
 
     msg_buf[Recived] = '\0';
-    LCD_UsrLog("Otrzymano wiadomosc: %s\n", &msg_buf[0]); // TODO ... wiadomosc od [UZUPELNIC]
+    LCD_UsrLog("Klient B: %s\n", &msg_buf[0]);
     msg_buf[Recived] = '\r';
     msg_buf_cnt = Recived + 2;
 

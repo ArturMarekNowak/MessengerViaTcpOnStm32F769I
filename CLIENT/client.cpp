@@ -8,7 +8,7 @@
 #include <netdb.h>
 #include <windows.h>
 #include <map>
-#include <chrono>
+#include <time.h>
 
 void error(const char *msg)
 {
@@ -26,10 +26,16 @@ DWORD WINAPI ReadThread(void* args)
 	while(1)
 	{
 	    n = read(sockfd, buffer, 255);
+
         if (n < 0) 
             error("ERROR reading from socket");
 
-	printf("%.*s", n, buffer);
+	char *ctime_no_newline;
+    	time_t tm = time(NULL);
+
+    	ctime_no_newline = strtok(ctime(&tm), "\n");
+    	printf("Otrzymano wiadomość %s", ctime_no_newline);
+	printf(" - %.*s", n - 1, buffer);
 
 	}
 	return 5;
@@ -42,8 +48,10 @@ DWORD WINAPI WriteThread(void* args)
         bzero(buffer,256);
         fgets(buffer,255,stdin);
         n = write(sockfd, buffer, strlen(buffer));
+
         if (n < 0) 
             error("ERROR writing to socket");
+
         bzero(buffer,256);
 	}
 	return 5;
