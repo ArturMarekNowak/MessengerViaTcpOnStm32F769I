@@ -25,6 +25,7 @@
 *.__i
 *.i
 *.txt
+!Quickstart.txt
 RTE/
 
 

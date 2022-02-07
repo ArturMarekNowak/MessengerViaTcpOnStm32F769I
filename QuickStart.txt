@@ -1,0 +1,11 @@
+1. Podłączyć płytkę do PC za pomocą kabla ethernetowego
+2. Ustawić statyczny adres IP lub wykorzystać DHCP (ja leciałem na statycznym ale widziałem, że DHCP też działa)
+3. Nie miałem switcha, więc odpalałem 2 konsole na jednym PC i łączyłem się z STMem na portach 80 i 90 (to jest póki co na sztywno w kodzie)
+4. Wklepujemy wiadomości w pierwszej lub drugiej konsoli, one lecą do STMa, a ten wyświetla wiadomość na ekranie i wysyła na drugi port. Póki co wszystko na sztywno.
+
+
+--> Obecny adres statyczny płytki to 192.168.10.10 /24
+--> Na PC używałem 192.168.10.5 /24
+--> DHCP można włączyć przez odkomentowanie #define USE_DHCP w main.h
+--> Tam też można zmienić statyczny adres IP, który będzie przypisany do STMa
+--> Program klienta zadziałał, więc wrzuciłem na githuba ale do bycia eleganckim mu jeszcze trochę brakuje xD Jeden wątek czyta, drugi pisze.
