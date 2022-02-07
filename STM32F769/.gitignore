@@ -1,0 +1,16 @@
+*.o
+*.bin
+*.d
+*.crf
+*.axf
+*.htm
+*.lnp
+*.map
+*.sct
+*.dep
+*.iex
+*.s
+*.icf
+*.html
+*.htm
+*.js
